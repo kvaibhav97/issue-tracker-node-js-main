@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+:root {
+  --box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%),
+    0 1px 18px 0 rgb(0 0 0 / 12%);
+  --xl: 992px;
+  --dark-green: #487462;
+  --light-green: #99bbad;
+  --white: #ffffff;
+  --blue: #0e49b5;
+  --orange: #bd4f01;
+  --dark-gray: #3d3b3b;
+  --light-gray: #5f5e5e;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  background-color: var(--light-green);
+  box-shadow: var(--box-shadow);
+  padding: 1em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+main {
+  display: flex;
+  min-height: 100vh;
+  height: fit-content;
+  justify-content: center;
+}
+
+.issues__container,
+.not-found__container {
+  padding: 8em 1em 2em 1em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.not-found__container {
+  flex-direction: column;
+  align-items: center;
+}
+
+.not-found__container h2 {
+  font-size: 2em;
+  color: var(--dark-green);
+}
+
+.issues__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-width: var(--xl);
+}
+
+.issues__issue {
+  width: 100%;
+}
+
+.issues__list li {
+  border-width: 0.1em;
+  border-color: var(--light-gray);
+  border-style: solid;
+  background-color: var(--white);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 1em;
+}
+
+.issues__list li:first-of-type {
+  border-top-left-radius: 0.25em;
+  border-top-right-radius: 0.25em;
+}
+
+.issues__list li:last-of-type {
+  border-bottom-left-radius: 0.25em;
+  border-bottom-right-radius: 0.25em;
+}
+
+.issues__list li:not(:last-of-type) {
+  border-bottom: none;
+}
+
+.issues__issue__card div:not(:last-of-type) {
+  padding-bottom: 1em;
+}
+
+.issues__issue__card__header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.issues__issue__card__action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.issues__issue__card__description {
+  color: var(--dark-gray);
+}
+
+.issues__issue__card__header__title {
+  font-weight: 700;
+}
+
+.issues__issue__card__header__status {
+  border-width: 0.1em;
+  border-style: solid;
+  font-weight: 700;
+  border-radius: 0.25em;
+  padding: 0.5em;
+  text-transform: uppercase;
+  margin-right: 1em;
+}
+
+.issues__issue__card__header__status--open {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.issues__issue__card__header__status--pending {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.issues__issue__card__header__status--closed {
+  border-color: var(--dark-gray);
+  color: var(--dark-gray);
+}
+
+.issues__issue__card__action button {
+  cursor: pointer;
+  border: none;
+  font-weight: 700;
+  background-color: var(--light-green);
+  padding: 0.75em 1em;
+  border-radius: 0.25em;
+  text-transform: uppercase;
+}
+
+.issues__issue__card__action button:last-of-type {
+  margin-left: 1em;
+}
+
+.issues__issue__card__action button:hover {
+  background-color: var(--dark-green);
+}

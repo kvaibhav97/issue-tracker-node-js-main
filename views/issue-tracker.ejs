@@ -1,0 +1,36 @@
+<%- include('./includes/prepend.ejs') %>
+    <main>
+      <section class="issues__container">
+        <ul class="issues__list">
+          <% for (let issue of issues) { %>
+          <li class="issues__issue__card">
+              <div class="issues__issue__card__header">
+                <span
+                  class="issues__issue__card__header__status <%= 'issues__issue__card__header__status--' + issue.status %>"
+                  ><%= issue.status %></span
+                >
+                <span class="issues__issue__card__header__title"
+                  ><%= issue.title %></span
+                >
+              </div>
+              <div class="issues__issue__card__description">
+                <%= issue.description %>
+              </div>
+
+              <% if (issue.status !== 'closed') { %>
+                <div class="issues__issue__card__action">
+                    <% if (issue.status === 'open') { %>
+                      <button class="issues__issue__card__action--assign" data-id="<%= issue.id %>" data-status="pending" type="submit">Assign</button>
+                    <% } %>
+                    <% if (issue.status !== 'closed') { %>
+                      <button class="issues__issue__card__action--close" data-id="<%= issue.id %>" data-status="closed" type="submit">Close</button>
+                    <% } %>
+                </div>
+              <% } %>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+    </main>
+    <script src="/js/main.js"></script>
+<%- include('./includes/postpend.ejs') %>
